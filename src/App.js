@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    let currentTime = new Date(2020, 7, 4, 11);
+    currentTime = currentTime.getHours();
+
+    let greetings = '';
+
+    const cssStyle = { color: '' }
+
+    if (currentTime >= 1 && currentTime <= 12) {
+        greetings = 'Good Morning!!'
+        cssStyle.color = 'green'
+    } else if (currentTime >= 12 && currentTime <= 19) {
+        greetings = 'Good Afternoon!!'
+        cssStyle.color = 'orange'
+    } else {
+        greetings = 'Good Night!!'
+        cssStyle.color = 'black'
+    }
+    return (
+        <div>
+            <h1>Hello Sir, <span style={cssStyle}>{greetings}</span></h1>
+        </div>
+    )
 }
 
-export default App;
+export default App
